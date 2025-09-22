@@ -1,6 +1,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/python
 # Edit at https://www.toptal.com/developers/gitignore?templates=python
 
+# Relatorio de teste
+report.html
 # Ignorar arquivos de senha e chave
 secret.key
 senha.enc
