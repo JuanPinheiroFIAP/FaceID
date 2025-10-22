@@ -24,13 +24,11 @@ def embedding(save_image_path="captured_face.jpg"):
             continue
 
         try:
-            # DeepFace detecta a face e gera embedding
             result = DeepFace.represent(frame, model_name='Facenet', enforce_detection=True)
             if result:
                 embedding = np.array(result[0]["embedding"])
                 logging.info("✅ Embedding gerado com sucesso!")
 
-                # Salva a imagem capturada
                 cv2.imwrite(save_image_path, frame)
                 logging.info(f"📷 Imagem do rosto salva em {save_image_path}")
 
@@ -40,7 +38,6 @@ def embedding(save_image_path="captured_face.jpg"):
             logging.error(f"❌ Erro ao gerar a embedding: {e}")
             break
 
-        # Mostra a webcam enquanto espera
         cv2.imshow("Aguardando face...", frame)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break

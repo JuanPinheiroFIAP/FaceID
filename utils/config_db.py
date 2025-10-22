@@ -4,10 +4,12 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 import getpass
 from cryptography.fernet import Fernet
-from config.settings import DB_KEY_FILE, DB_PASSWORD_FILE
+from config.settings import DB_KEY_FILE, DB_PASSWORD_FILE, DB_KEY_PASTA
 
 def key():
-    """Gera chave secreta e salva no arquivo"""
+    # Garante que a pasta do arquivo de chave existe
+    os.makedirs(DB_KEY_PASTA, exist_ok=True)
+    
     key = Fernet.generate_key()
     with open(DB_KEY_FILE, "wb") as key_file:
         key_file.write(key)

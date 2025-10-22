@@ -4,7 +4,7 @@ from pathlib import Path
 project_root = Path(".")
 
 # Pastas que queremos ignorar
-ignore_dirs = {"venv", "__pycache__",".git"}
+ignore_dirs = {"venv", "__pycache__",".git", "FaceAuthApp"}
 
 def list_project_files(root: Path):
     print(f"Listando arquivos e pastas de: {root.resolve()}\n")

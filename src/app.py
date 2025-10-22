@@ -73,7 +73,7 @@ def register_my_face(conn, username):
     insert_embedding(conn, username, emb_crypt, metadata="cadastro inicial")
     return True
 
-def try_unlock(conn, username, similarity_threshold=0.90):
+def try_unlock(conn, username, similarity_threshold=0.70):
     """
     Tenta desbloquear o app para um usuário específico.
     A decisão é baseada na cosine similarity.
@@ -109,7 +109,7 @@ def try_unlock(conn, username, similarity_threshold=0.90):
             continue
 
         print(f"\n🔹 Comparando embedding {i} (metadata: {metadata})")
-        print(f"Primeiros 5 valores embedding armazenada: {stored[:5]}")
+        #print(f"Primeiros 5 valores embedding armazenada: {stored[:5]}")
 
         # Distância L2 (apenas para inspeção)
         l2_distance = np.linalg.norm(current.astype(np.float32) - stored.astype(np.float32))
